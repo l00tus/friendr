@@ -1,4 +1,4 @@
-const usersService = require("../services/users.service")
+const usersService = require("../services/users.service");
 
 const usersController = {
     createUser: (userObj) => {
@@ -7,9 +7,9 @@ const usersController = {
         usersService.createUser(userObj);
     },
     deleteUser: (userId) => {
-        console.log(`Deleted user with id: ${userId}`);
+        console.log("Reached user controller");
         usersService.deleteUser(userId);
     }
-}
+};
 
 module.exports = usersController;
