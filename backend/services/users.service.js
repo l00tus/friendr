@@ -12,8 +12,15 @@ const usersService = {
         const userToBeCreated = new UserModel(userObj);
         userToBeCreated.save().then(() => console.log('User created'))
     },
-    deleteUser: (userId) => {
-        console.log(`Deleted user ${userId} in service`);
+    deleteUserById: async (userId) => {
+        const response = await UserModel.deleteOne( {id: userId}, {} );
+        console.log(response);
+        return response;
+    },
+    updateUserById: async (userId, userUpdates) => {
+        const response = await UserModel.findOneAndUpdate({ id: userId}, userUpdates, { new: true});
+        console.log(response);
+        return response;
     }
 };
 
