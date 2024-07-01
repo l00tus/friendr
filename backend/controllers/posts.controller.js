@@ -7,6 +7,13 @@ const postsController = {
 
         res.status(201).send(postsObj);
     },
+    getPostByID: async(req, res) => {
+        const postId = req.params.id;
+
+        const postObj = await postsService.getPostByID(postId);
+
+        res.status(200).send(postObj);
+    },
     createPost: async(req, res) => {
         const postToBeCreated = req.body;
 
@@ -17,7 +24,7 @@ const postsController = {
             return;
         }
 
-        postToBeCreated.date = new Date().toString();
+        postToBeCreated.date = new Date().toISOString();
 
         postsService.createPost(postToBeCreated);
         res.status(201).send("Successfully created.");
