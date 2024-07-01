@@ -1,0 +1,32 @@
+.container {
+    display: flex;
+    justify-content: center;
+    background-color: #eeeeee;
+    width: 100%;
+    height: 100vh;
+}
+
+.login-card {
+    display: flex;
+    align-items: center;
+    align-self: center;
+    flex-direction: column;
+    width: 500px;
+    height: auto;
+    padding: 32px;
+    background-color: grey; 
+    border-radius: 8px;
+    gap: 8px;
+}
+
+.sign-in-btn {
+    background-color: #e1251b;
+    width: 100%;
+    height: 60px;
+    padding: 16px 32px;
+    color: white;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+}
+
