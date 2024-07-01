@@ -16,8 +16,7 @@ const usersController = {
         console.log("Reached POST user controller");
 
         //validate user object from req
-        if( !userToBeCreated?.id ||
-            !userToBeCreated?.firstName ||
+        if( !userToBeCreated?.firstName ||
             !userToBeCreated?.lastName ||
             !userToBeCreated?.username
         ){

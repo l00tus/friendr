@@ -1,11 +1,14 @@
-const postsService = {
-    createPost: (postObj) => {
-        console.log("Created post in service");
-        console.log(postObj);
-    },
+const PostModel = require('../data/posts.model');
 
-    deletePost: (postId) => {
-        console.log(`Deleted post with id ${postId} in service`);
+const postsService = {
+    getPosts: async () => {
+        const response = await PostModel.find();
+        return response;
+    },
+    createPost: async (postObj) => {
+        console.log(postObj);
+        const postToBeCreated = new PostModel(postObj);
+        postToBeCreated.save().then(() => console.log('Post created'));
     }
 };
 
