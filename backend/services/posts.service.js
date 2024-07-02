@@ -1,4 +1,5 @@
 const PostModel = require('../data/posts.model');
+const { v4: uuidv4 } = require('uuid');
 
 const postsService = {
     getPosts: async () => {
@@ -11,6 +12,8 @@ const postsService = {
     },
     createPost: async (postObj) => {
         console.log(postObj);
+        postObj.date = new Date().toISOString();
+        postObj.id = uuidv4();
         const postToBeCreated = new PostModel(postObj);
         postToBeCreated.save().then(() => console.log('Post created'));
     }

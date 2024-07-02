@@ -17,14 +17,14 @@ const postsController = {
     createPost: async(req, res) => {
         const postToBeCreated = req.body;
 
-        if( !postToBeCreated?.title ||
+        if( !postToBeCreated ||
+            !postToBeCreated?.author ||
+            !postToBeCreated?.title ||
             !postToBeCreated?.description
         ) {
             res.status(400).send('Invalid post object.');
             return;
         }
-
-        postToBeCreated.date = new Date().toISOString();
 
         postsService.createPost(postToBeCreated);
         res.status(201).send("Successfully created.");

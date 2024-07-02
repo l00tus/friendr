@@ -2,14 +2,17 @@ const UserModel = require("../data/users.model");
 const usersService = require("../services/users.service");
 
 const usersController = {
-    getUser: async (req, res) => {
-        const userId = req.params.id;
-        console.log("Reached GET user controller");
-        console.log(userId);
+    getUserByUsername: async (req, res) => {
+        const username = req.params.username;
 
-        const userObj = await usersService.getUserById(userId);
+        const userObj = await usersService.getUserByUsername(username);
 
-        res.status(201).send(userObj);
+        if(!userObj) {
+            res.status(404).send("User not found.");
+            return;
+        }
+
+        res.status(200).send(userObj);
     },
     createUser: async (req, res) => {
         const userToBeCreated = req.body;
