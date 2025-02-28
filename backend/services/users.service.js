@@ -1,4 +1,6 @@
 const UserModel = require('../data/users.model')
+const { v4: uuidv4 } = require('uuid');
+
 
 const usersService = {
     getUserById: async (userId) => {
@@ -13,6 +15,7 @@ const usersService = {
         console.log("Reached user service");
         console.log(userObj);
 
+        userObj.id = uuidv4();
         const userToBeCreated = new UserModel(userObj);
         userToBeCreated.save().then(() => console.log('User created'))
     },

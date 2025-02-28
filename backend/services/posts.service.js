@@ -16,6 +16,12 @@ const postsService = {
         postObj.id = uuidv4();
         const postToBeCreated = new PostModel(postObj);
         postToBeCreated.save().then(() => console.log('Post created'));
+    },
+    removePostLikes: async (postId, username) => {
+        await PostModel.updateOne({id: postId}, {$pull: {likes: username}});
+    },
+    addPostLikes: async (postId, username) => {
+        await PostModel.updateOne({id: postId}, {$push: {likes: username}});
     }
 };
 

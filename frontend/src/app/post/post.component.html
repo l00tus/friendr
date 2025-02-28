@@ -1,0 +1,23 @@
+<div class="post">
+    <div class="post-header">
+        <div class="post-header-profile">
+            <img class="avatar" [src]="userAvatarURL">
+            <div class="post-user-details">
+                <div class="post-username">{{postInput.author || "anonymous"}}</div>
+                <div class="post-date-created">{{postInput.date || "unknown"}}</div>
+            </div>
+        </div>
+        <button class="following-btn basic-btn">Following</button>
+    </div>
+    <div class="post-body">
+        <img src="assets/images/post.png"/>
+        <div>
+            <strong>{{postInput?.title}}</strong>
+            <br>
+            {{postInput?.description}}
+        </div>
+    </div>
+    <div class="post-footer">
+
+    </div>
+</div>  

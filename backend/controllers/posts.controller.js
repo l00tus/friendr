@@ -28,6 +28,34 @@ const postsController = {
 
         postsService.createPost(postToBeCreated);
         res.status(201).send("Successfully created.");
+    },
+    updatePostLikes: async(req, res) => {
+        const postId = req.params.id;
+        const username = req.body.username;
+
+        if(!username) {
+            res.status(400).send();
+            return;
+        }
+
+        const postObj = await postsService.getPostByID(postId); //verifica getpostbyid
+
+        if(!postObj) {
+            res.status(404).send("Post not found.")
+            return;
+        }
+
+        const likes = postObj.likes;
+
+        if(likes.includes(username)) {
+            await postsService.removePostLikes(postId, username);
+        } else {
+            await postsService.addPostLikes(postId, username);
+        }
+
+        const updatedPostObj = await postsService.getPostByID(postId);
+
+        res.status(200).send(updatedPostObj);
     }
 };
 

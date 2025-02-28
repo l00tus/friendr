@@ -1,12 +1,12 @@
 <div class="container">
     <div class="login-card">
         <h1>Welcome to Friendr</h1>
-        <div>Sign in to your account</div>
+        <div class="secondary-text">Sign in to your account</div>
     
 
-    <input type="text" placeholder="Enter your username" [(ngModel)]="username">
+    <input type="text" placeholder="Enter your username" [(ngModel)]="username" required>
 
-    <button class="sign-in-btn" (click)="signIn()">Sign in</button>
+    <button class="sign-in-btn" (click)="signIn()" [disabled]="loading">Sign in</button>
 
     </div>
 </div>

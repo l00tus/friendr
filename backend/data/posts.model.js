@@ -6,7 +6,8 @@ const PostModel = mongoose.model('Post',
         author: String,
         title: String,
         description: String,
-        date: Date
+        date: Date,
+        likes: [String],
     });
 
 module.exports = PostModel;

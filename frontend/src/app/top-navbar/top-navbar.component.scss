@@ -1,7 +1,7 @@
 $red: #e1251b;
 
 header {
-  background-color: $red;
+  background-color: #C0E6C2;
   height: 50px;
   color: #fefefe;
   display: flex;
@@ -20,6 +20,7 @@ header {
   justify-content: left;
   gap: 5px;
   cursor: pointer;
+  color: #141115;
 }
 
 .profile {
@@ -29,6 +30,7 @@ header {
   font-size: 16px;
   gap: 16px;
   align-items: center;
+  color: #141115;
 }
 
 .profile div {
