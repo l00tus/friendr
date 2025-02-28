@@ -8,7 +8,7 @@ const usersController = {
         const userObj = await usersService.getUserByUsername(username);
 
         if(!userObj) {
-            res.status(404).send("User not found.");
+            res.status(404).send({ error: "User not found." });
             return;
         }
 
@@ -23,13 +23,13 @@ const usersController = {
             !userToBeCreated?.lastName ||
             !userToBeCreated?.username
         ){
-            res.status(400).send("Invalid user object.");
+            res.status(400).send({ error: "Invalid user object." });
             return;
         }
 
         console.log(userToBeCreated);
         usersService.createUser(userToBeCreated);
-        res.status(201).send("Successfully created.");
+        res.status(201).send({ message: "Successfully created." });
     },
     deleteUser: async (req, res) => {
         const userId = req.params.id;
@@ -37,7 +37,7 @@ const usersController = {
 
         await usersService.deleteUserById(userId);
 
-        res.status(200).send("Successfully deleted.");
+        res.status(200).send({ message: "Successfully deleted." });
     },
     updateUser: async (req, res) => {
         const userId = req.params.id;
@@ -47,14 +47,14 @@ const usersController = {
             !userUpdates?.lastName ||
             !userUpdates?.username
         ) {
-            res.status(400).send("Invalid user object.");
+            res.status(400).send({ error: "Invalid user object." });
             return;
         }
 
         console.log(userUpdates);
         const updatedUser = await usersService.updateUserById(userId, userUpdates);
 
-        res.status(200).send("Successfully updated.")
+        res.status(200).send({ message: "Successfully updated." });
     }
 };
 

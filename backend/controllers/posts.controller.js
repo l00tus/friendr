@@ -22,12 +22,12 @@ const postsController = {
             !postToBeCreated?.title ||
             !postToBeCreated?.description
         ) {
-            res.status(400).send('Invalid post object.');
+            res.status(400).send({ error: 'Invalid post object.' });
             return;
         }
 
         postsService.createPost(postToBeCreated);
-        res.status(201).send("Successfully created.");
+        res.status(201).send({ message: "Successfully created." });
     },
     updatePostLikes: async(req, res) => {
         const postId = req.params.id;
@@ -41,7 +41,7 @@ const postsController = {
         const postObj = await postsService.getPostByID(postId); //verifica getpostbyid
 
         if(!postObj) {
-            res.status(404).send("Post not found.")
+            res.status(404).send({ error: "Post not found." });
             return;
         }
 
@@ -55,7 +55,7 @@ const postsController = {
 
         const updatedPostObj = await postsService.getPostByID(postId);
 
-        res.status(200).send(updatedPostObj);
+        res.status(200).send({ message: updatedPostObj });
     }
 };
 

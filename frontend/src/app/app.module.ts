@@ -11,11 +11,13 @@ import { provideHttpClient } from '@angular/common/http';
 import { TopNavbarComponent } from './top-navbar/top-navbar.component';
 import { PostComponent } from './post/post.component';
 import { CreatePostComponent } from './create-post/create-post.component';
+import { RegisterComponent } from './register/register.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
+    RegisterComponent,
     HomepageComponent,
     TopNavbarComponent,
     PostComponent,

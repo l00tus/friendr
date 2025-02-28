@@ -9,7 +9,10 @@ export class AppComponent {
   title = 'frontend';
 
   isLoggedIn() {
-    // return !!localStorage.getItem('userName');
-    return document.location.pathname !== '/';
+    if(document.location.pathname === '/register' || document.location.pathname === '/login') {
+      return false;
+    } else {
+      return true;
+    }
   }
 }

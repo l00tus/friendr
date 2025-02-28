@@ -1,3 +1,5 @@
+require('dotenv').config({ path: './../.env' });
+
 const express = require('express');
 const app = express();
 const mongoose = require('mongoose');
@@ -19,7 +21,7 @@ app.listen(port, () => {
   console.log(`Friendr listening on port ${port}`);
 
   mongoose
-    .connect('REDACTED')
+    .connect(process.env.DB_URI)
     .then(() => {
       console.log("Connected to DB and listening")
     })

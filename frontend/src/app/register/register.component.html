@@ -1,0 +1,15 @@
+<div class="container">
+    <div class="login-card">
+        <div class="head">
+            <h1>Welcome to Friendr</h1>
+            <p class="secondary-text">Create an account or <a routerLink="/login">sign in</a></p>
+        </div>
+        
+        <input type="text" placeholder="Enter your first name" [(ngModel)]="firstName">
+        <input type="text" placeholder="Enter your last name" [(ngModel)]="lastName">
+        <input type="text" placeholder="Enter your username" [(ngModel)]="username">
+    
+    <button class="sign-in-btn" (click)="signUp()" [disabled]="loading">Sign in</button>
+
+    </div>
+</div>

@@ -3,10 +3,15 @@ import { RouterModule, Routes } from '@angular/router';
 import { HomepageComponent } from './homepage/homepage.component';
 import { LoginComponent } from './login/login.component';
 import { CreatePostComponent } from './create-post/create-post.component';
+import { RegisterComponent } from './register/register.component';
 
 const routes: Routes = [
+  { path: '', redirectTo: 'login', pathMatch: 'full' },
   {
-    path: '', component: LoginComponent,
+    path: 'login', component: LoginComponent,
+  },
+  {
+    path: 'register', component: RegisterComponent,
   },
   {
     path: 'homepage', component: HomepageComponent,
