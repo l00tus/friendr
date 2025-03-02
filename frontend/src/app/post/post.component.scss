@@ -5,7 +5,7 @@ $red: #e1251b;
     display: flex;
     flex-direction: column;
     padding: 32px;
-    gap: 16px;
+    gap: 12px;
   }
   
   .post-header {
@@ -80,4 +80,11 @@ $red: #e1251b;
   
   .post-footer {
     display: flex;
+    gap: 4px;
+    justify-content: flex-start;
+    align-items: center;
+
+    p {
+      margin: 0;
+    }
   }

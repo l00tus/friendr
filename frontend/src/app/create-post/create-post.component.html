@@ -1,3 +1,13 @@
-<main>
-    <h2>Create a post</h2>
-</main>
+<div class="container">
+    <div class="create-post-card">
+        <div class="head">
+            <h1>Create a post</h1>
+        </div>
+        
+        <input type="text" placeholder="Enter the post title" [(ngModel)]="title">
+        <input type="text" placeholder="Enter the post description" [(ngModel)]="description">
+
+    <button class="btn" (click)="submitPost()" [disabled]="loading || !this.title || !this.description">Submit post</button>
+
+    </div>
+</div>

@@ -34,7 +34,7 @@ const postsController = {
         const username = req.body.username;
 
         if(!username) {
-            res.status(400).send();
+            res.status(400).send({ error: "Username is missing." });
             return;
         }
 
@@ -55,7 +55,7 @@ const postsController = {
 
         const updatedPostObj = await postsService.getPostByID(postId);
 
-        res.status(200).send({ message: updatedPostObj });
+        res.status(200).send(updatedPostObj);
     }
 };
 

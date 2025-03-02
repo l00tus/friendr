@@ -21,4 +21,13 @@ export class AppService {
   getPosts(): Observable<any>{
     return this.http.get(`http://localhost:3000/posts`);
   }
+
+  createPost(author: string, title: string, description: string): Observable<any> {
+    const postObject = { author, title, description };
+    return this.http.post(`http://localhost:3000/posts`, postObject);
+  }
+
+  updatePostLikes(postId: string, username: string): Observable<any> {
+    return this.http.patch(`http://localhost:3000/posts/${postId}/likes`, { username });
+  }
 }
